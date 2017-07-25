@@ -10,6 +10,10 @@
   </head>
   <body>
     <h3>My Google Maps Demo</h3>
+    <form method="get" action="">
+        <input type="text" name="search" hint="keywords" value="{{request.GET.search}}">
+        <input type="submit">
+    </form>
     <div id="map"></div>
     <script>
       function initMap() {
