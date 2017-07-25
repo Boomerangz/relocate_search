@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="get" action="">
+        <select name="location_id">
+            <option value="">All</option>
+            {% for location in locations_list %}
+            <option value="{{location.id}}" {% if request.GET.location_id == location.id|stringformat:"i" %}selected{% endif %}>{{location.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit">
+    </form>
+    <table>
+        <th>Name</th> <th>Location</th> <th>Link</th>
+        {% for job in object_list %}
+            <tr>
+                <td>{{job.name}}</td> <td>{{job.location.name}}</td> <td><a href="{{job.link}}">Link</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
