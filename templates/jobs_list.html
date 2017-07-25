@@ -8,6 +8,7 @@
             <option value="{{location.id}}" {% if request.GET.location_id == location.id|stringformat:"i" %}selected{% endif %}>{{location.name}}</option>
             {% endfor %}
         </select>
+        <input type="text" name="search" hint="keywords" value="{{request.GET.search}}">
         <input type="submit">
     </form>
     <table>

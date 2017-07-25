@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.views.generic import ListView
 
 from relocate_search.models import Job, JobLocation
@@ -12,6 +13,9 @@ class JobsList(ListView):
         queryset = super(JobsList, self).get_queryset(*args, **kwargs)
         if self.request.GET.get('location_id'):
             queryset = queryset.filter(location__id=self.request.GET.get('location_id'))
+        if self.request.GET.get('search'):
+            search = self.request.GET.get('search')
+            queryset = queryset.filter(Q(name__icontains=search)|Q(tags__name__iexact=search.lower()))
         return queryset
 
 
