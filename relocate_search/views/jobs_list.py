@@ -16,7 +16,7 @@ class JobsList(ListView):
         if self.request.GET.get('search'):
             search = self.request.GET.get('search')
             queryset = queryset.filter(Q(name__icontains=search)|Q(tags__name__iexact=search.lower()))
-        return queryset
+        return queryset.distinct()
 
 
     def get_context_data(self, **kwargs):
