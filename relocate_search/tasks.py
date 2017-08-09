@@ -77,7 +77,7 @@ def grab_moikrug():
                 continue
             location_str = job.find('span', {'class': 'location'}).text.replace('\n', '').replace('\r', '').replace('- ', '').strip()
 
-            job_link = job.find('div', {'class':'title'}).find('a')['href']
+            job_link = 'https://moikrug.ru' + job.find('div', {'class':'title'}).find('a')['href']
             job_str = job.find('div', {'class':'title'}).find('a').text.strip()
             job_tags = [tag.text.lower().strip() for tag in job.findAll('a', {'class':'skill'})]
 
