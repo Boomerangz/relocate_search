@@ -21,6 +21,6 @@ from relocate_search.views.locations_list import LocationsList
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^jobs/', JobsList.as_view()),
+    url(r'^$', JobsList.as_view()),
     url(r'^locations/', LocationsList.as_view())
 ]

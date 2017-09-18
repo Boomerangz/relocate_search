@@ -11,11 +11,13 @@
         <input type="text" name="search" hint="keywords" value="{{request.GET.search}}">
         <input type="submit">
     </form>
-    <table>
-        <th>Name</th> <th>Location</th> <th>Link</th>
+    <table border="1">
+        <th>Name</th> <th>Location</th> <th>tags</th> <th>Link</th>
         {% for job in object_list %}
             <tr>
-                <td>{{job.name}}</td> <td>{{job.location.name}}</td> <td><a href="{{job.link}}">Link</a></td>
+                <td>{{job.name}}</td> <td>{{job.location.name}}</td>
+		<td>{% for t in job.tags.all %} {{t.name}} <br/> {% endfor %} </td>
+		 <td><a href="{{job.link}}">Link</a></td>
             </tr>
         {% endfor %}
     </table>
