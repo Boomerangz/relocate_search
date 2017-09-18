@@ -20,7 +20,7 @@
         let uluru = [
         {% for location in object_list %}
             {lat: {{location.latitude}}, lng: {{location.longitude}},
-            title: "{{location.name}} ({{location.job_set.all.count}})", link: "/jobs/?location_id={{location.id}}"},
+            title: "{{location.name}} ({{location.jobs_count}})", link: "/?location_id={{location.id}}&search={{request.GET.search}}"},
         {% endfor %}
         ];
 
@@ -45,7 +45,7 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADPDl5Olz4iXHTUBEOxeJaqRBVOwx0ICE&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz8gJfGKTkAhQXK-vsuEMTKoAMbPEFW7s&callback=initMap">
     </script>
   </body>
 </html>

@@ -14,5 +14,6 @@ class Job(models.Model):
     location = models.ForeignKey(JobLocation)
     link = models.URLField(unique=True)
     tags = models.ManyToManyField(JobTag)
+    deleted = models.BooleanField(default=False)
 
 
